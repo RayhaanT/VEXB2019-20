@@ -26,6 +26,10 @@
 #define MAIN_H_
 
 #include <API.h>
+#include "encoder_pid.h"
+#include "chassis.h"
+#include "motorslew.h"
+#include "autonomous.h"
 
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus
@@ -93,6 +97,13 @@ void initialize();
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
 void operatorControl();
+
+void myAuton(int route, int position);
+void flagShoot();
+
+//declare encoders
+Encoder encoderRight;
+Encoder encoderLeft;
 
 // End C++ export structure
 #ifdef __cplusplus

@@ -27,7 +27,7 @@
             "bin/init.c.o",
             "src\\init.c"
         ],
-        "directory": "C:\\Users\\Rayhaan\\desktop\\teamb\\vexteamb",
+        "directory": "C:\\Users\\Rayhaan\\desktop\\VEXB2019-20\\cortex",
         "file": "src\\init.c"
     },
     {
@@ -55,11 +55,104 @@
             "-fdiagnostics-color",
             "-std=gnu99",
             "-o",
-            "bin/opcontrol.c.o",
-            "src\\opcontrol.c"
+            "bin/chassis.c.o",
+            "src\\chassis.c"
         ],
-        "directory": "C:\\Users\\Rayhaan\\desktop\\teamb\\vexteamb",
-        "file": "src\\opcontrol.c"
+        "directory": "C:\\Users\\Rayhaan\\desktop\\VEXB2019-20\\cortex",
+        "file": "src\\chassis.c"
+    },
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-target",
+            "armv7ar-none-none-eabi",
+            "-fno-ms-extensions",
+            "-fno-ms-compatibility",
+            "-fno-delayed-template-parsing",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
+            "-isystem./include",
+            "-iquote./include/./",
+            "-mthumb",
+            "-mcpu=cortex-m3",
+            "-mlittle-endian",
+            "-Os",
+            "-ffunction-sections",
+            "-fsigned-char",
+            "-fomit-frame-pointer",
+            "-fsingle-precision-constant",
+            "-fdiagnostics-color",
+            "-std=gnu99",
+            "-o",
+            "bin/autonomous.c.o",
+            "src\\autonomous.c"
+        ],
+        "directory": "C:\\Users\\Rayhaan\\desktop\\VEXB2019-20\\cortex",
+        "file": "src\\autonomous.c"
+    },
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-target",
+            "armv7ar-none-none-eabi",
+            "-fno-ms-extensions",
+            "-fno-ms-compatibility",
+            "-fno-delayed-template-parsing",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
+            "-isystem./include",
+            "-iquote./include/./",
+            "-mthumb",
+            "-mcpu=cortex-m3",
+            "-mlittle-endian",
+            "-Os",
+            "-ffunction-sections",
+            "-fsigned-char",
+            "-fomit-frame-pointer",
+            "-fsingle-precision-constant",
+            "-fdiagnostics-color",
+            "-std=gnu99",
+            "-o",
+            "bin/encoder_pid.c.o",
+            "src\\encoder_pid.c"
+        ],
+        "directory": "C:\\Users\\Rayhaan\\desktop\\VEXB2019-20\\cortex",
+        "file": "src\\encoder_pid.c"
+    },
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-target",
+            "armv7ar-none-none-eabi",
+            "-fno-ms-extensions",
+            "-fno-ms-compatibility",
+            "-fno-delayed-template-parsing",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
+            "-isystem./include",
+            "-iquote./include/./",
+            "-mthumb",
+            "-mcpu=cortex-m3",
+            "-mlittle-endian",
+            "-Os",
+            "-ffunction-sections",
+            "-fsigned-char",
+            "-fomit-frame-pointer",
+            "-fsingle-precision-constant",
+            "-fdiagnostics-color",
+            "-std=gnu99",
+            "-o",
+            "bin/motorslew.c.o",
+            "src\\motorslew.c"
+        ],
+        "directory": "C:\\Users\\Rayhaan\\desktop\\VEXB2019-20\\cortex",
+        "file": "src\\motorslew.c"
     },
     {
         "arguments": [
@@ -89,7 +182,38 @@
             "bin/auto.c.o",
             "src\\auto.c"
         ],
-        "directory": "C:\\Users\\Rayhaan\\desktop\\teamb\\vexteamb",
+        "directory": "C:\\Users\\Rayhaan\\desktop\\VEXB2019-20\\cortex",
         "file": "src\\auto.c"
+    },
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-target",
+            "armv7ar-none-none-eabi",
+            "-fno-ms-extensions",
+            "-fno-ms-compatibility",
+            "-fno-delayed-template-parsing",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
+            "-isystem./include",
+            "-iquote./include/./",
+            "-mthumb",
+            "-mcpu=cortex-m3",
+            "-mlittle-endian",
+            "-Os",
+            "-ffunction-sections",
+            "-fsigned-char",
+            "-fomit-frame-pointer",
+            "-fsingle-precision-constant",
+            "-fdiagnostics-color",
+            "-std=gnu99",
+            "-o",
+            "bin/opcontrol.c.o",
+            "src\\opcontrol.c"
+        ],
+        "directory": "C:\\Users\\Rayhaan\\desktop\\VEXB2019-20\\cortex",
+        "file": "src\\opcontrol.c"
     }
 ]

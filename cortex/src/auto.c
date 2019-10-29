@@ -3,11 +3,17 @@
  *
  * This file should contain the user autonomous() function and any functions related to it.
  *
+ * Any copyright is dedicated to the Public Domain.
+ * http://creativecommons.org/publicdomain/zero/1.0/
+ *
  * PROS contains FreeRTOS (http://www.freertos.org) whose source code may be
  * obtained from http://sourceforge.net/projects/freertos/files/ or on request.
  */
 
 #include "main.h"
+#include "encoder_pid.h"
+#include "chassis.h"
+#include "motorslew.h"
 
 /*
  * Runs the user autonomous code. This function will be started in its own task with the default
@@ -24,4 +30,14 @@
  * so, the robot will await a switch to another mode or disable/enable cycle.
  */
 void autonomous() {
+  taskCreate(motorslewing, TASK_DEFAULT_STACK_SIZE, NULL,	TASK_PRIORITY_HIGHEST);
+  myAuton(1,1);
+
+}
+
+
+void flagShoot2() {
+  motorReq(shooterMotor, 127);
+  delay(1500);
+  motorReq(shooterMotor, 0);
 }
