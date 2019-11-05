@@ -42,7 +42,7 @@ void operatorControl() {
 	encoderReset(encoderLeft);
 	taskCreate(motorslewing, TASK_DEFAULT_STACK_SIZE, NULL,	TASK_PRIORITY_HIGHEST);
 	//taskCreate(shoot, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT);
-	//_DRONE_CONTROL_ 
+	//_DRONE_CONTROL_
 
 	//this variable ensures that each movement was meant to occur rather
 	//than a roaming joystick
@@ -146,7 +146,7 @@ if (abs(joystickGetAnalog(1, 3)) > joythresh){
 
 			if (joystickGetDigital(1, 8, JOY_UP)) {
 				motorReq(shooterMotor, -128);
-			}	
+			}
 			else if (joystickGetDigital(1, 8, JOY_DOWN)) {
 				motorReq(shooterMotor, 128);
 			}
