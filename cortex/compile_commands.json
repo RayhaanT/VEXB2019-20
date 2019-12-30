@@ -26,5 +26,33 @@
         ],
         "directory": "/Users/mihirkachroo/Documents/GitHub/VEXB2019-20/cortex",
         "file": "src/opcontrol.c"
+    },
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-target",
+            "armv7ar-none-none-eabi",
+            "-isystem/usr/local/lib/pros-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/include",
+            "-isystem/usr/local/lib/pros-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/include-fixed",
+            "-isystem/usr/local/lib/pros-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/include",
+            "-isystem./include",
+            "-iquote./include/./",
+            "-mthumb",
+            "-mcpu=cortex-m3",
+            "-mlittle-endian",
+            "-Os",
+            "-ffunction-sections",
+            "-fsigned-char",
+            "-fomit-frame-pointer",
+            "-fsingle-precision-constant",
+            "-fdiagnostics-color",
+            "-std=gnu99",
+            "-o",
+            "bin/opcontrol.c.o",
+            "src/opcontrol.c"
+        ],
+        "directory": "/Users/mihirkachroo/Documents/VEXB2019-20/cortex",
+        "file": "src/opcontrol.c"
     }
 ]
