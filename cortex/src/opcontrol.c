@@ -40,33 +40,12 @@ void operatorControl() {
 	encoderReset(encoderRight);
 	encoderReset(encoderLeft);
 	taskCreate(motorslewing, TASK_DEFAULT_STACK_SIZE, NULL,	TASK_PRIORITY_HIGHEST);
-	//taskCreate(shoot, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT);
-	//_DRONE_CONTROL_
 
-	//this variable ensures that each movement was meant to occur rather
-	//than a roaming joystick
 	int joythresh = 25;
-	//int turnJoy = 50;                           				//sets the power of the motor
 	bool run = true;
-	int intakeSpeed = 127;
-	//float timeOfLastShot = 0;
-	//float timeOfLastLiftPress = 0;
+	int intakeSpeed = 125;
 	int reverseMultiplier = 1;
-	//bool reverseNeeded = false;
-	/*int prevEncoderLeft = 0;
-	int prevEncoderRight = 0;
-	float driftMultiplierRight = 1;
-	float driftMultiplierLeft = 1;*/
-	/*TaskHandle autonTask;
-	while (1){
-		if (joystickGetDigital(1, 7, JOY_LEFT)) {
-			autonTask = taskCreate(autonomous, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT);
-			break;
-		}
-	}
-	delay(15000);
-	taskDelete(autonTask);*/
-	//autonomous();
+
 	while(true) {
 		printf("Running");
 
@@ -76,9 +55,6 @@ void operatorControl() {
 			run = true;
 		}
 		if (run) {
-			//printf("printing");
-			//count = encoderGet(encoderRight);
-			//printf("\nthe encoder value%d, %d", count, encoderGet(encoderLeft));
 			float rightSpeed = 0;
 			float leftSpeed = 0;
 
@@ -105,8 +81,7 @@ if (abs(joystickGetAnalog(1, 3)) > joythresh){
 				rightSpeed /=3;
 			}
 
-			//Press to choose which side it goes from
-
+			//Press to choose which side it goes from -- useless
 			if (joystickGetDigital(1, 8, JOY_LEFT)) {
 				reverseMultiplier = -1;
 			}
@@ -174,22 +149,7 @@ if (abs(joystickGetAnalog(1, 3)) > joythresh){
 				rightSpeed = 0;
 				leftSpeed = 0;
 			}
-			/*if (millis() > timeOfLastLiftPress + 200)
-			{
-				if(motorGet(armMotor1) > 10)
-				{
-					motorReq(armMotor1, 0);
-					motorReq(armMotor2, 0);
-				}
-				else if(reverseNeeded)
-				{
-					motorReq(armMotor1, 127);
-					motorReq(armMotor2, -40);
-					timeOfLastLiftPress = millis();
-					reverseNeeded = false;
-				}
-			}*/
+
 		}
-		//tracking();
 	}
 }

@@ -4,7 +4,7 @@ void chassisSet(int left, int right) { //sets the speed of the drive system
   //motordrive systems
   //Note: Gotta reverse left 1 and right 3 on the bot
   left*=-1;
-  right*=0.7;
+  right*=0.5;
   //right*=-1;
   float speedChange=1;
   motorReq(leftMotor1, left*speedChange);
