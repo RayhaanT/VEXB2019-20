@@ -47,7 +47,7 @@ void operatorControl() {
 	int reverseMultiplier = 1;
 
 	while(true) {
-		printf("Running");
+		printf("Running...your mom");
 
 		run = true;
 		if (joystickGetDigital(1, 7, JOY_LEFT))
@@ -125,26 +125,7 @@ if (abs(joystickGetAnalog(1, 3)) > joythresh){
 				motorReq(liftMechanism, 0);
 			}
 
-			//Arm control
-			if (joystickGetDigital(1, 7, JOY_UP)) {
-				motorReq(armMotor1, -127);
-			}
-
-			else if (joystickGetDigital(1, 7, JOY_DOWN)) {
-				motorReq(armMotor1, 127);
-			}
-			else {motorReq(armMotor1, 0);}
-
-			if (joystickGetDigital(1, 8, JOY_UP)) {
-				motorReq(shooterMotor, -128);
-			}
-			else if (joystickGetDigital(1, 8, JOY_DOWN)) {
-				motorReq(shooterMotor, 128);
-			}
-			else {motorReq(shooterMotor, 0);}
-
-		if (joystickGetDigital(1, 7, JOY_RIGHT))
-			{
+			if (joystickGetDigital(1, 7, JOY_RIGHT))	{
 				run = false;
 				rightSpeed = 0;
 				leftSpeed = 0;

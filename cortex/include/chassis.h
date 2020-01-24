@@ -16,8 +16,7 @@
 #define leftIntake 8
 #define rightIntake 9
 #define liftMechanism 7
-#define shooterMotor 1
-#define armMotor1 1
+
 
 //set speed of dlrive system
 void chassisSet(int left, int right); //sets the speed of the drive system
