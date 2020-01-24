@@ -1,11 +1,10 @@
-/** @file opcontrol.c
- * @brief File for operator control code
+/** @file opcontrol.* @brief File for operator control code
  *
  * This file should contain the user operatorControl() function and any functions related to it.
  *
  * Any copyright is dedicated to the Public Domain.
  * http://creativecommons.org/publicdomain/zero/1.0/
- *
+ *d
  * PROS contains FreeRTOS (http://www.freertos.org) whose source code may be
  * obtained from http://sourceforge.net/projects/freertos/files/ or on request.
  */
@@ -67,9 +66,10 @@ void operatorControl() {
 	}
 	delay(15000);
 	taskDelete(autonTask);*/
-	printf("Team B is cooler than Team A");
 	//autonomous();
-	while(1) {
+	while(true) {
+		printf("Running");
+
 		run = true;
 		if (joystickGetDigital(1, 7, JOY_LEFT))
 		{
@@ -105,6 +105,8 @@ if (abs(joystickGetAnalog(1, 3)) > joythresh){
 				rightSpeed /=3;
 			}
 
+			//Press to choose which side it goes from
+
 			if (joystickGetDigital(1, 8, JOY_LEFT)) {
 				reverseMultiplier = -1;
 			}
@@ -122,19 +124,33 @@ if (abs(joystickGetAnalog(1, 3)) > joythresh){
 					chassisSet(rightSpeed * 0.5, leftSpeed);
 				}
 			delay(2);
+
+			//Intake mechanism
 			if (joystickGetDigital(1, 5, JOY_DOWN)) {
-				motorReq(rollerIntake, -intakeSpeed);
-				motorReq(topIntake, -intakeSpeed);
+				motorReq(rightIntake, intakeSpeed);
+				motorReq(leftIntake, -intakeSpeed);
 			}
 			else if(joystickGetDigital(1, 6, JOY_DOWN)) {
-				motorReq(rollerIntake, intakeSpeed);
-				motorReq(topIntake, intakeSpeed*3);
+				motorReq(rightIntake, -intakeSpeed);
+				motorReq(leftIntake, intakeSpeed*3);
 			}
 			else {
-				motorReq(rollerIntake, 0);
-				motorReq(topIntake, 0);
+				motorReq(rightIntake, 0);
+				motorReq(leftIntake, 0);
 			}
 
+		 //The lifting mechanism
+			if (joystickGetDigital(1, 5, JOY_UP)) {
+				motorReq(liftMechanism, intakeSpeed/1.5);
+			}
+			else if(joystickGetDigital(1, 6, JOY_UP)) {
+				motorReq(liftMechanism, -intakeSpeed/1.5);
+			}
+			else {
+				motorReq(liftMechanism, 0);
+			}
+
+			//Arm control
 			if (joystickGetDigital(1, 7, JOY_UP)) {
 				motorReq(armMotor1, -127);
 			}
