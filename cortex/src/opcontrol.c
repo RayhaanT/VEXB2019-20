@@ -1,11 +1,10 @@
-/** @file opcontrol.c
- * @brief File for operator control code
+/** @file opcontrol.* @brief File for operator control code
  *
  * This file should contain the user operatorControl() function and any functions related to it.
  *
  * Any copyright is dedicated to the Public Domain.
  * http://creativecommons.org/publicdomain/zero/1.0/
- *
+ *d
  * PROS contains FreeRTOS (http://www.freertos.org) whose source code may be
  * obtained from http://sourceforge.net/projects/freertos/files/ or on request.
  */
@@ -37,48 +36,27 @@
 float encoderConstant = 0.015;
 
 void operatorControl() {
-	//autonomous();
+	autonomous();
+
 	encoderReset(encoderRight);
 	encoderReset(encoderLeft);
 	taskCreate(motorslewing, TASK_DEFAULT_STACK_SIZE, NULL,	TASK_PRIORITY_HIGHEST);
-	//taskCreate(shoot, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT);
-	//_DRONE_CONTROL_ 
 
-	//this variable ensures that each movement was meant to occur rather
-	//than a roaming joystick
 	int joythresh = 25;
-	//int turnJoy = 50;                           				//sets the power of the motor
 	bool run = true;
-	int intakeSpeed = 127;
-	//float timeOfLastShot = 0;
-	//float timeOfLastLiftPress = 0;
+	int intakeSpeed = 125;
 	int reverseMultiplier = 1;
-	//bool reverseNeeded = false;
-	/*int prevEncoderLeft = 0;
-	int prevEncoderRight = 0;
-	float driftMultiplierRight = 1;
-	float driftMultiplierLeft = 1;*/
-	/*TaskHandle autonTask;
-	while (1){
-		if (joystickGetDigital(1, 7, JOY_LEFT)) {
-			autonTask = taskCreate(autonomous, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT);
-			break;
-		}
-	}
-	delay(15000);
-	taskDelete(autonTask);*/
-	printf("Team B is cooler than Team A");
-	//autonomous();
-	while(1) {
+
+	while(true) {
+
+		printf("Running... mom");
+
 		run = true;
 		if (joystickGetDigital(1, 7, JOY_LEFT))
 		{
 			run = true;
 		}
 		if (run) {
-			//printf("printing");
-			//count = encoderGet(encoderRight);
-			//printf("\nthe encoder value%d, %d", count, encoderGet(encoderLeft));
 			float rightSpeed = 0;
 			float leftSpeed = 0;
 
@@ -105,6 +83,7 @@ if (abs(joystickGetAnalog(1, 3)) > joythresh){
 				rightSpeed /=3;
 			}
 
+			//Press to choose which side it goes from -- useless
 			if (joystickGetDigital(1, 8, JOY_LEFT)) {
 				reverseMultiplier = -1;
 			}
@@ -122,58 +101,38 @@ if (abs(joystickGetAnalog(1, 3)) > joythresh){
 					chassisSet(rightSpeed * 0.5, leftSpeed);
 				}
 			delay(2);
+
+			//Intake mechanism
 			if (joystickGetDigital(1, 5, JOY_DOWN)) {
-				motorReq(rollerIntake, -intakeSpeed);
-				motorReq(topIntake, -intakeSpeed);
+				motorReq(rightIntake, intakeSpeed);
+				motorReq(leftIntake, -intakeSpeed);
 			}
 			else if(joystickGetDigital(1, 6, JOY_DOWN)) {
-				motorReq(rollerIntake, intakeSpeed);
-				motorReq(topIntake, intakeSpeed*3);
+				motorReq(rightIntake, -intakeSpeed);
+				motorReq(leftIntake, intakeSpeed*3);
 			}
 			else {
-				motorReq(rollerIntake, 0);
-				motorReq(topIntake, 0);
+				motorReq(rightIntake, 0);
+				motorReq(leftIntake, 0);
 			}
 
-			if (joystickGetDigital(1, 7, JOY_UP)) {
-				motorReq(armMotor1, -127);
+		 //The lifting mechanism
+			if (joystickGetDigital(1, 5, JOY_UP)) {
+				motorReq(liftMechanism, intakeSpeed/1.5);
+			}
+			else if(joystickGetDigital(1, 6, JOY_UP)) {
+				motorReq(liftMechanism, -intakeSpeed/1.5);
+			}
+			else {
+				motorReq(liftMechanism, 0);
 			}
 
-			else if (joystickGetDigital(1, 7, JOY_DOWN)) {
-				motorReq(armMotor1, 127);
-			}
-			else {motorReq(armMotor1, 0);}
-
-			if (joystickGetDigital(1, 8, JOY_UP)) {
-				motorReq(shooterMotor, -128);
-			}	
-			else if (joystickGetDigital(1, 8, JOY_DOWN)) {
-				motorReq(shooterMotor, 128);
-			}
-			else {motorReq(shooterMotor, 0);}
-
-		if (joystickGetDigital(1, 7, JOY_RIGHT))
-			{
+			if (joystickGetDigital(1, 7, JOY_RIGHT))	{
 				run = false;
 				rightSpeed = 0;
 				leftSpeed = 0;
 			}
-			/*if (millis() > timeOfLastLiftPress + 200)
-			{
-				if(motorGet(armMotor1) > 10)
-				{
-					motorReq(armMotor1, 0);
-					motorReq(armMotor2, 0);
-				}
-				else if(reverseNeeded)
-				{
-					motorReq(armMotor1, 127);
-					motorReq(armMotor2, -40);
-					timeOfLastLiftPress = millis();
-					reverseNeeded = false;
-				}
-			}*/
+
 		}
-		//tracking();
 	}
 }

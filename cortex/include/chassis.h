@@ -2,20 +2,23 @@
 #define _CHASSIS_H_
 
 //include relevant source files
-#include "chassis.h"
 #include "main.h"
 #include "motorslew.h"
 
-#define leftMotor1  7
-#define rightMotor1 2
-#define leftMotor2  8
-#define rightMotor2 3
-#define rollerIntake 1
-#define shooterMotor 5
-#define armMotor1 6
-#define topIntake 9
+#define leftMotor1  2
+#define rightMotor1 5
+#define leftMotor2  2
+#define rightMotor2 5
+#define leftMotor3  3
+#define rightMotor3 6
+#define leftMotor4  3
+#define rightMotor4 6
+#define leftIntake 8
+#define rightIntake 9
+#define liftMechanism 7
 
-//set speed of drive system
+
+//set speed of dlrive system
 void chassisSet(int left, int right); //sets the speed of the drive system
   //motordrive systems
 
